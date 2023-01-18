@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "author": "João Palma",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0.6, "left": 9, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": -66.6,
+      "left": 199.6,
+      "attrs": { "color": "yellow" }
+    },
+    { "type": "wokwi-led", "id": "led1", "top": -138, "left": 254.4, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -158.8,
+      "left": 18,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-ntc-temperature-sensor",
+      "id": "ntc1",
+      "top": -47.9,
+      "left": -118.7,
+      "rotate": 90,
+      "attrs": {}
+    },
+    { "type": "wokwi-lcd1602", "id": "lcd1", "top": -342.17, "left": 6.4, "attrs": {} },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -201,
+      "left": 182.4,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    [ "ntc1:GND", "uno:GND.1", "black", [ "v0.5", "h38.9", "v-67.2", "h124.8" ] ],
+    [ "led1:C", "uno:GND.1", "black", [ "v76.8", "h-49.6" ] ],
+    [ "btn1:1.l", "uno:GND.1", "black", [ "h-9.6", "v48", "h-67.2" ] ],
+    [ "uno:VIN", "ntc1:VCC", "red", [ "v28.7", "h-245.5", "v-9.6" ] ],
+    [ "ntc1:OUT", "uno:A0", "orange", [ "v182.9", "h269.4" ] ],
+    [ "btn1:2.r", "uno:0", "yellow", [ "h0" ] ],
+    [ "uno:GND.1", "lcd1:VSS", "black", [ "v-172.8", "h-86.1", "v-9.6" ] ],
+    [ "uno:GND.1", "lcd1:K", "black", [ "v-172.8", "h57.9" ] ],
+    [ "lcd1:A", "r1:1", "green", [ "v0" ] ],
+    [ "r1:2", "uno:5V", "green", [ "v0", "h85", "v403.2", "h-153.6" ] ],
+    [ "uno:GND.1", "lcd1:RW", "black", [ "v-172.8", "h-47.7" ] ],
+    [ "lcd1:RS", "uno:12", "green", [ "v38.4", "h77.1" ] ],
+    [ "lcd1:E", "uno:11", "green", [ "v38.4", "h67.2" ] ],
+    [ "lcd1:D4", "uno:10", "green", [ "v38.4", "h28.8" ] ],
+    [ "lcd1:D5", "uno:9", "green", [ "v38.4", "h28.9" ] ],
+    [ "led1:A", "uno:1", "red", [ "v86.4", "h-28.8" ] ],
+    [ "uno:8", "lcd1:D6", "green", [ "v-182.4", "h-28.4" ] ],
+    [ "lcd1:D7", "uno:7", "green", [ "v38.4", "h29.1" ] ],
+    [ "uno:GND.1", "bz1:1", "black", [ "v-19.2", "h-76.5" ] ],
+    [ "uno:13", "bz1:2", "brown", [ "v-28.8", "h-76.4" ] ]
+  ]
+}
